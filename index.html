@@ -73,7 +73,7 @@ Highcharts.chart('container', {
     },
 
     data: {
-        csvURL: 'covid/covid-data-sample.csv',
+        csvURL: 'https://vishnuvp.in/covid/covid-data-sample.csv',
         beforeParse: function (csv) {
             return csv.replace(/\n\n/g, '\n');
         }
