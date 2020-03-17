@@ -73,7 +73,7 @@ Highcharts.chart('container', {
     },
 
     data: {
-        csvURL: 'https://vishnuvp.in/covid19/covid-data-sample.csv',
+        csvURL: 'https://vishnuvp.in/covid19/covid19-data.csv',
         beforeParse: function (csv) {
             return csv.replace(/\n\n/g, '\n');
         }
@@ -166,8 +166,8 @@ Highcharts.chart('container', {
             },    
         }
     },
-    series: [{visible: true, color: "red", zIndex:999},
-            {visible: false},{visible: false},{visible: false},{visible: false},
+    series: [
+            {visible: false},{visible: false},{visible: true, color: "red", zIndex:999},{visible: false},{visible: false},
             {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
             {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
             {visible: false},{visible: false},{visible: false},{visible: false},{visible: false}
