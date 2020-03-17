@@ -1,5 +1,5 @@
 python3 py/collect_clean_data.py
-[[ -z "$1" ]] && echo $1 > collect_clean_data.py
+[[ ! -z "$1" ]] && echo $1 > collect_clean_data.py
 git add . -A 
 git commit -m "Update data"
 git checkout gh-pages
