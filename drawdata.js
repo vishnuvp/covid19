@@ -2,7 +2,7 @@ function createChartJson(csvUrl, titleText, subtitleText, yAxisText, tooltipText
      
         return {
                 chart: {
-                    type: 'column',
+                    type: 'bellcurve',
                     scrollablePlotArea: {
                         minWidth: 700
                     }
@@ -108,7 +108,7 @@ function worldData() {
         'Data sources: github.com/CSSEGISandData/COVID-19, mohfw.gov.in',
         'Confirmed Cases',
         ' confirmed cases',
-        [{visible: true, zIndex:999, regression: true},
+        [{visible: true, zIndex:999},
                 {visible: false},{visible: false},{visible: false},{visible: false},
                 {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
                 {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
