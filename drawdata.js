@@ -117,13 +117,3 @@ function worldData() {
     );
 
 }
-
-function indiaData() {
-    Highcharts.chart('container', createChartJson('http://0.0.0.0:8000/covid19-india-data.csv',
-        'CoVid19 India Focus',
-        'Data sources: mohfw.gov.in',
-        'Cases',
-        ' cases',
-        [])
-        );
-}
