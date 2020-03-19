@@ -108,7 +108,7 @@ function worldData() {
         'Data sources: github.com/CSSEGISandData/COVID-19, mohfw.gov.in',
         'Confirmed Cases',
         ' confirmed cases',
-        [{visible: true, zIndex:999},
+        [{visible: true, zIndex:999, regression: true},
                 {visible: false},{visible: false},{visible: false},{visible: false},
                 {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
                 {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
