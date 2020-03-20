@@ -12,7 +12,7 @@
         .highcharts-figure, .highcharts-data-table table {
             min-width: 95vw; 
             max-width: 1200px;
-            margin: 1em auto;
+            margin: 2em auto;
         }
 
         .highcharts-data-table table {
@@ -42,10 +42,27 @@
         .highcharts-data-table tr:hover {
             background: #f1f7ff;
         }
+        .category-item {
+                color: #666;
+                background: #eee;
+                padding: 1vh 1vw;
+                width: 10vw;
+                margin: 10vh 1vw;
+                cursor: pointer;
+        }
+
+        .category-item:hover {
+            background: #666;
+            color: #eee;
+        }
+
+        .highcharts-figure:hover {
+            box-shadow: 0 0 50px rgba(0,0,255,0.2);
+        }
 
     </style>
 </head>
-<body style="height: 80vh; background:  rgb(255,255,255);">
+<body style="height: 80vh; background:  rgb(255,255,255);text-align: center">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="Highcharts/highcharts.js"></script>
     <script src="Highcharts/modules/data.js"></script>
@@ -55,22 +72,22 @@
     <script src="Highcharts/modules/accessibility.js"></script>
     <script src="Highcharts/modules/histogram-bellcurve.js"></script>
     <script src="Highcharts/themes/sunset.js"></script>
-
-    <!-- <div id="category">
-        <span class="category-item" id="category-item-1">India Vs Active Countries</span>
-        <span class="category-item" id="category-item-2">Indian States</span>
-        <div> -->
+    <h2 style="box-shadow: 0 0 5px #ddd; width: 100%; padding: 1vh 1vw; text-align: center">CoVid-19</h2>
+    <div id="category">
+        <span class="category-item" id="category-item-all-countries">India Vs Active Countries</span>
+        <span class="category-item" id="category-item-states">Indian States</span>
+    <div>
     <figure class="highcharts-figure">
-        <div id="container" style="height: 90vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"></div>
+        <div id="container" style="height: 70vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"></div>
     </figure>
-
+    
     <script src="drawdata.js"></script>
 
     <script type="text/javascript">
         worldData();
     </script>
     <footer style="text-align: center; color: #ddd">
-        Disclaimer: India data is proactively updated from mohfw.gov.in. Hence, latest data for other countries may be displayed flat.
+        Disclaimer: India data is updated from mohfw.gov.in and public media for up-to-date information. Please consider mohfw.gov.in as the authentic source of information in case of ambiguity.
     </footer>
 </body>
 </html>

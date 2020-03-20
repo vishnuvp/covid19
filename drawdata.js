@@ -117,3 +117,60 @@ function worldData() {
     );
 
 }
+
+function indiaData() {
+    var seriesJson = []
+    $.ajax({
+    type:"GET", 
+    url: "http://localhost:8000/covid19-india.json", 
+    success: function(data) {
+            console.log(data)
+            seriesJson = data
+            Highcharts.chart('container', {
+                title: {
+                    text: 'CoVid-19 India - State Focus'
+                },
+                xAxis: {
+                    categories: seriesJson['categories']
+                },
+                yAxis: [{
+                        title: {
+                            text: "Number of Cases"
+                        }
+                    }],
+                labels: {
+                    items: [{
+                        html: 'COVID-19 India - Statewise Focus',
+                        style: {
+                            left: '50px',
+                            top: '18px',
+                            color: ( // theme
+                                Highcharts.defaultOptions.title.style &&
+                                Highcharts.defaultOptions.title.style.color
+                            ) || 'black'
+                        }
+                    }]
+                },
+                series: seriesJson['series']
+            });
+        }, 
+    error: function(jqXHR, textStatus, errorThrown) {
+            seriesJson = []
+        },
+    dataType: "json"
+    });
+
+}
+
+$(document).ready(function(){
+    $(".category-item").click(function(){
+        if ($(this).attr('id') == 'category-item-all-countries') {
+            worldData()
+        }
+
+        if ($(this).attr('id') == 'category-item-states') {
+            indiaData()
+        }
+
+    });
+});
