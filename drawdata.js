@@ -2,7 +2,7 @@ function createChartJson(csvUrl, titleText, subtitleText, yAxisText, tooltipText
      
         return {
                 chart: {
-                    type: 'bellcurve',
+                    type: 'line',
                     scrollablePlotArea: {
                         minWidth: 700
                     }
