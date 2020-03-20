@@ -126,13 +126,18 @@ function indiaData() {
     success: function(data) {
             console.log(data)
             seriesJson = data
-            Highcharts.chart('container2', {
+            Highcharts.chart('container', {
                 title: {
                     text: 'CoVid-19 India - State Focus'
                 },
                 xAxis: {
                     categories: seriesJson['categories']
                 },
+                yAxis: [{
+                        title: {
+                            text: "Number of Cases"
+                        }
+                    }],
                 labels: {
                     items: [{
                         html: 'COVID-19 India - Statewise Focus',
@@ -155,4 +160,17 @@ function indiaData() {
     dataType: "json"
     });
 
-    }
+}
+
+$(document).ready(function(){
+    $(".category-item").click(function(){
+        if ($(this).attr('id') == 'category-item-all-countries') {
+            worldData()
+        }
+
+        if ($(this).attr('id') == 'category-item-states') {
+            indiaData()
+        }
+
+    });
+});
