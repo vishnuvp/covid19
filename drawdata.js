@@ -122,7 +122,7 @@ function indiaData() {
     var seriesJson = []
     $.ajax({
     type:"GET", 
-    url: "http://localhost:8000/covid19-india.json", 
+    url: "https://vishnuvp.in/covid19-india.json", 
     success: function(data) {
             console.log(data)
             seriesJson = data
