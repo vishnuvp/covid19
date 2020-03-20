@@ -1,187 +1,93 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="Cache-control" content="no-cache">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="CoVid-19 India focussed data visualizations" />
-        <meta name="robots" content="all" />
-        <title>CoVid-19 India Focus</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CoVid-19 India focussed data visualizations" />
+    <meta name="robots" content="all" />
+    <title>CoVid-19 India Focus</title>
 
-        <style type="text/css">
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
-    max-width: 1200px;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #EBEBEB;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 1200px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-    font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-        </style>
-    </head>
-    <body style="height: 80vh">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="Highcharts/highcharts.js"></script>
-<script src="Highcharts/modules/data.js"></script>
-<script src="Highcharts/modules/series-label.js"></script>
-<script src="Highcharts/modules/exporting.js"></script>
-<script src="Highcharts/modules/export-data.js"></script>
-<script src="Highcharts/modules/accessibility.js"></script>
-
-<!-- Additional files for the Highslide popup effect -->
-<!-- <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
-<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
- -->
-<figure class="highcharts-figure">
-    <div id="container" style="height: 90vh"></div>
-</figure>
-
-
-
-        <script type="text/javascript">
-Highcharts.chart('container', {
-
-    chart: {
-        type: 'spline',
-        scrollablePlotArea: {
-            minWidth: 700
+    <style type="text/css">
+        .highcharts-figure, .highcharts-data-table table {
+            min-width: 95vw; 
+            max-width: 1200px;
+            margin: 2em auto;
         }
-    },
 
-    data: {
-        csvURL: 'https://vishnuvp.in/covid19/covid19-data.csv',
-        beforeParse: function (csv) {
-            return csv.replace(/\n\n/g, '\n');
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
         }
-    },
-
-    title: {
-        text: 'CoVid19 India Focus'
-    },
-
-    subtitle: {
-        text: 'Data sources: github.com/CSSEGISandData/COVID-19, mohfw.gov.in'
-    },
-
-    xAxis: {
-        type: 'datetime',
-        tickInterval: 7 * 24 * 3600 * 1000, // one week
-        tickWidth: 0,
-        gridLineWidth: 1,
-        labels: {
-            align: 'left',
-            x: 3,
-            y: -3
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
         }
-    },
-
-    yAxis: [{ // left y axis
-        title: {
-            text: 'Confirmed Cases'
-        },
-        labels: {
-            align: 'left',
-            x: 3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }, { // right y axis
-        linkedTo: 0,
-        gridLineWidth: 0,
-        opposite: true,
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'right',
-            x: -3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }],
-
-    legend: {
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
-    },
-
-    tooltip: {
-        shared: true,
-        crosshairs: true
-    },
-
-    plotOptions: {
-        series: {
-            selected: false,
-            showCheckbox: false,
-            cursor: 'none',
-            point: {
-                events: {
-                    click: function (e) {
-                        hs.htmlExpand(null, {
-                            pageOrigin: {
-                                x: e.pageX || e.clientX,
-                                y: e.pageY || e.clientY
-                            },
-                            headingText: this.series.name,
-                            maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                this.y + ' confirmed cases',
-                            width: 200
-                        });
-                    }
-                }
-            },
-            lineWidth: 3,
-            marker: {
-                lineWidth: 5,
-                enabled: false
-                
-            },    
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
         }
-    },
-    series: [{visible: true, zIndex:999},
-            {visible: false},{visible: false},{visible: false},{visible: false},
-            {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
-            {visible: false},{visible: false},{visible: false},{visible: false},{visible: false},
-            {visible: false},{visible: false},{visible: false},{visible: false},{visible: false}
-            ]
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+        .category-item {
+                color: #666;
+                background: #eee;
+                padding: 1vh 1vw;
+                width: 10vw;
+                margin: 10vh 1vw;
+                cursor: pointer;
+        }
 
+        .category-item:hover {
+            background: #666;
+            color: #eee;
+        }
+
+        .highcharts-figure:hover {
+            box-shadow: 0 0 50px rgba(0,0,255,0.2);
+        }
+
+    </style>
+</head>
+<body style="height: 80vh; background:  rgb(255,255,255);text-align: center">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="Highcharts/highcharts.js"></script>
+    <script src="Highcharts/modules/data.js"></script>
+    <script src="Highcharts/modules/series-label.js"></script>
+    <script src="Highcharts/modules/exporting.js"></script>
+    <script src="Highcharts/modules/export-data.js"></script>
+    <script src="Highcharts/modules/accessibility.js"></script>
+    <script src="Highcharts/modules/histogram-bellcurve.js"></script>
+    <script src="Highcharts/themes/sunset.js"></script>
+    <h2 style="box-shadow: 0 0 5px #ddd; width: 100%; padding: 1vh 1vw; text-align: center">CoVid-19</h2>
+    <div id="category">
+        <span class="category-item" id="category-item-all-countries">India Vs Active Countries</span>
+        <span class="category-item" id="category-item-states">Indian States</span>
+    <div>
+    <figure class="highcharts-figure">
+        <div id="container" style="height: 70vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);"></div>
+    </figure>
     
-});
+    <script src="drawdata.js"></script>
 
-        </script>
-        <footer style="text-align: center; color: #ddd">
-            Disclaimer: India data is proactively updated from mohfw.gov.in. Hence, latest data for other countries may be displayed flat.
-        </footer>
-    </body>
+    <script type="text/javascript">
+        worldData();
+    </script>
+    <footer style="text-align: center; color: #ddd">
+        Disclaimer: India data is updated from mohfw.gov.in and public media for up-to-date information. Please consider mohfw.gov.in as the authentic source of information in case of ambiguity.
+    </footer>
+</body>
 </html>
