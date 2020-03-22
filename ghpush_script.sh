@@ -40,8 +40,8 @@ do
         shift 
         ;;
         -u|--update-world)
-		echo $2
-        # echo $2,,,,,,,,,,,,,,,, >> covid19-data.csv
+		echo "Updating data with $2"
+        echo $2,,,,,,,,,,,,,,,, >> covid19-data.csv
 
         shift # Remove argument name from processing
         shift # Remove argument value from processing
