@@ -13,7 +13,7 @@ class NpEncoder(json.JSONEncoder):
             return obj.tolist()
         else:
             return super(NpEncoder, self).default(obj)
-def create_json(n,d,s=none):
+def create_json(n,d,s=None):
 
   jsonData = {"type": "column","name": n, "data": d}
   if s:
