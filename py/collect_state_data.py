@@ -13,6 +13,11 @@ class NpEncoder(json.JSONEncoder):
             return obj.tolist()
         else:
             return super(NpEncoder, self).default(obj)
+def create_json(n,d,s=none):
+
+  jsonData = {"type": "column","name": n, "data": d}
+  if s:
+    jsonData['stacking'] = s
 
 df = pd.read_html('https://www.mohfw.gov.in/')
 df1 = pd.DataFrame(df[1])
@@ -24,11 +29,10 @@ df1['Cured/Discharged/Migrated'] = pd.to_numeric(df1['Cured/Discharged/Migrated'
 df1['Death'] = pd.to_numeric(df1['Death'])
 
 df1['confirmed'] = df1['Total Confirmed cases (Indian National)'] + df1['Total Confirmed cases ( Foreign National )']
-series_lambda = lambda n,d,s: {"type": "column","name": n, "data": d, "stacking": s}
 
-jsonData = {"categories": states, "series":[series_lambda("Confirmed", list(df1['confirmed'][:-1]), "undefined"),
-                                       series_lambda("Cured", list(df1['Cured/Discharged/Migrated'][:-1]), 'normal'),
-                                       series_lambda("Death", list(df1['Death'][:-1]), 'normal')
+jsonData = {"categories": states, "series":[create_json("Confirmed", list(df1['confirmed'][:-1])),
+                                       create_json("Cured", list(df1['Cured/Discharged/Migrated'][:-1]), 'normal'),
+                                       create_json("Death", list(df1['Death'][:-1]), 'normal')
                                        ]}
 with open('covid19-india.json', 'w') as fp:
     json.dump(jsonData, fp, cls=NpEncoder)
