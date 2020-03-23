@@ -26,7 +26,7 @@ df1['Death'] = pd.to_numeric(df1['Death'])
 df1['confirmed'] = df1['Total Confirmed cases (Indian National)'] + df1['Total Confirmed cases ( Foreign National )']
 series_lambda = lambda n,d,s: {"type": "column","name": n, "data": d, "stacking": s}
 
-jsonData = {"categories": states, "series":[series_lambda("Confirmed", list(df1['confirmed'][:-1]), undefined),
+jsonData = {"categories": states, "series":[series_lambda("Confirmed", list(df1['confirmed'][:-1]), "undefined"),
                                        series_lambda("Cured", list(df1['Cured/Discharged/Migrated'][:-1]), 'normal'),
                                        series_lambda("Death", list(df1['Death'][:-1]), 'normal')
                                        ]}
