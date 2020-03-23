@@ -16,7 +16,13 @@ class NpEncoder(json.JSONEncoder):
 
 df = pd.read_html('https://www.mohfw.gov.in/')
 df1 = pd.DataFrame(df[1])
+df1 = df1[:-1]
 states = list(df1['Name of State / UT'][:-1])
+df1['Total Confirmed cases (Indian National)'] = pd.to_numeric(df1['Total Confirmed cases (Indian National)'])
+df1['Total Confirmed cases ( Foreign National )'] = pd.to_numeric(df1['Total Confirmed cases ( Foreign National )'])
+df1['Cured/Discharged/Migrated'] = pd.to_numeric(df1['Cured/Discharged/Migrated'])
+df1['Death'] = pd.to_numeric(df1['Death'])
+
 df1['confirmed'] = df1['Total Confirmed cases (Indian National)'] + df1['Total Confirmed cases ( Foreign National )']
 series_lambda = lambda n,d: {"type": "column","name": n, "data": d}
 
