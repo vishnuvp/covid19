@@ -18,6 +18,7 @@ def create_json(n,d,s=None):
   jsonData = {"type": "column","name": n, "data": d}
   if s:
     jsonData['stacking'] = s
+  return jsonData
 
 df = pd.read_html('https://www.mohfw.gov.in/')
 df1 = pd.DataFrame(df[1])
