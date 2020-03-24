@@ -122,7 +122,7 @@ function indiaData() {
     var seriesJson = []
     $.ajax({
     type:"GET", 
-    url: "https://vishnuvp.in/covid19/covid19-india.json", 
+    url: "http://localhost:8000/covid19-india.json", 
     success: function(data) {
             console.log(data)
             seriesJson = data
@@ -136,7 +136,8 @@ function indiaData() {
                 yAxis: [{
                         title: {
                             text: "Number of Cases"
-                        }
+                        },
+                        allowDecimals: false
                     }],
                 labels: {
                     items: [{
