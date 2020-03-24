@@ -136,7 +136,8 @@ function indiaData() {
                 yAxis: [{
                         title: {
                             text: "Number of Cases"
-                        }
+                        },
+                        allowDecimals: false
                     }],
                 labels: {
                     items: [{
