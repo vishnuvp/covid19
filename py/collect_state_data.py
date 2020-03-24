@@ -21,7 +21,7 @@ def create_json(n,d,s=None):
   return jsonData
 
 df = pd.read_html('https://www.mohfw.gov.in/')
-df1 = pd.DataFrame(df[1])
+df1 = pd.DataFrame(df[7])
 df1 = df1[:-1]
 states = list(df1['Name of State / UT'][:-1])
 df1['Total Confirmed cases (Indian National)'] = pd.to_numeric(df1['Total Confirmed cases (Indian National)'])
