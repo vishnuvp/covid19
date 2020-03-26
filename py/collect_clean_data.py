@@ -6,5 +6,7 @@ df1['Date'].fillna(df1['Country/Region'], inplace=True)
 df1=df1.drop(['Province/State','Country/Region','Lat','Long'], axis=1)
 df1.set_index('Date', inplace=True)
 df1 = df1.transpose()
-df1 = df1[['India', 'Germany', 'United Arab Emirates', 'Italy', 'Spain', 'Ireland', 'Qatar', 'Saudi Arabia', 'Washington', 'New York', 'California', 'Hubei', 'Iran', 'France', 'Shanghai', 'Korea, South', 'Taiwan*']]
+df1 = df1[['India', 'Hubei', 'Italy', 'US', 'Spain', 'Germany', 'Iran', 'France', 'Korea, South', 'Malaysia', 'Ireland', 'Japan', 'Pakistan', 'Saudi Arabia', 'Indonesia', 'Taiwan*', 'United Arab Emirates', 'Qatar']]
 df1.to_csv('covid19-data.csv')
+
+
