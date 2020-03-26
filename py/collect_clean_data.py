@@ -1,6 +1,6 @@
 import pandas as pd
 
-df1 = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv")
+df1 = pd.read_csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv")
 df1["Date"] = df1['Province/State']
 df1['Date'].fillna(df1['Country/Region'], inplace=True)
 df1=df1.drop(['Province/State','Country/Region','Lat','Long'], axis=1)
