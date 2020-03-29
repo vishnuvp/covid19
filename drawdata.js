@@ -164,7 +164,7 @@ function indiaData() {
 }
 
 $(document).ready(function(){
-    $("#gContainer").hide()
+    $("#gcontainer").hide()
     $(".category-item").click(function(){
         if ($(this).attr('id') == 'category-item-all-countries') {
             $("#gContainer").fadeOut()
