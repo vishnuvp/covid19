@@ -167,19 +167,19 @@ $(document).ready(function(){
     $("#gcontainer").hide()
     $(".category-item").click(function(){
         if ($(this).attr('id') == 'category-item-all-countries') {
-            $("#gContainer").fadeOut()
+            $("#gcontainer").fadeOut()
             $('#container').show()
             worldData()
         }
 
         if ($(this).attr('id') == 'category-item-states') {
-            $("#gContainer").fadeOut()
+            $("#gcontainer").fadeOut()
             $('#container').show()
             indiaData()
         }
         if ($(this).attr('id') == 'category-item-india') {
             $('#container').slideUp()
-            $("#gContainer").fadeIn()
+            $("#gcontainer").fadeIn()
 
         }
 
