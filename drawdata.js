@@ -167,11 +167,13 @@ $(document).ready(function(){
     $(".category-item").click(function(){
         if ($(this).attr('id') == 'category-item-all-countries') {
             $("#gContainer").fadeOut()
+            $('#container').show()
             worldData()
         }
 
         if ($(this).attr('id') == 'category-item-states') {
             $("#gContainer").fadeOut()
+            $('#container').show()
             indiaData()
         }
         if ($(this).attr('id') == 'category-item-india') {
