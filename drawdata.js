@@ -166,11 +166,18 @@ function indiaData() {
 $(document).ready(function(){
     $(".category-item").click(function(){
         if ($(this).attr('id') == 'category-item-all-countries') {
+            $("#gContainer").fadeOut()
             worldData()
         }
 
         if ($(this).attr('id') == 'category-item-states') {
+            $("#gContainer").fadeOut()
             indiaData()
+        }
+        if ($(this).attr('id') == 'category-item-india') {
+            $('#container').slideUp()
+            $("#gContainer").fadeIn()
+
         }
 
     });
