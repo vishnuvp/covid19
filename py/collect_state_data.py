@@ -24,12 +24,9 @@ df = pd.read_html('https://www.mohfw.gov.in/')
 df1 = pd.DataFrame(df[-1])
 df1 = df1[:-2]
 states = list(df1['Name of State / UT'][:-1])
-df1['Total Confirmed cases (Indian National)'] = pd.to_numeric(df1['Total Confirmed cases (Indian National)'])
-df1['Total Confirmed cases ( Foreign National )'] = pd.to_numeric(df1['Total Confirmed cases ( Foreign National )'])
+df1['confirmed'] = pd.to_numeric(df1['Total Confirmed cases *'])
 df1['Cured/Discharged/Migrated'] = pd.to_numeric(df1['Cured/Discharged/Migrated'])
 df1['Death'] = pd.to_numeric(df1['Death'])
-
-df1['confirmed'] = df1['Total Confirmed cases (Indian National)'] + df1['Total Confirmed cases ( Foreign National )']
 
 jsonData = {"categories": states, "series":[create_json("Confirmed", list(df1['confirmed'][:-1])),
                                        create_json("Cured", list(df1['Cured/Discharged/Migrated'][:-1]), 'normal'),
