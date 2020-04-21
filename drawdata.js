@@ -164,29 +164,46 @@ function indiaData() {
 }
 
 $(document).ready(function(){
-    $("#gcontainer, #gcontainer2").hide()
+    $(".display-chart").hide()
+    $("#gcontainer3").fadeIn()
     $(".category-item").click(function(){
         if ($(this).attr('id') == 'category-item-all-countries') {
-            $("#gcontainer, #gcontainer2").fadeOut()
-            $('#container').show()
+            $(".display-chart").fadeOut(function(){
+                $('#container').show()
+            })
+            
             worldData()
         }
 
         if ($(this).attr('id') == 'category-item-states') {
-            $("#gcontainer, #gcontainer2").fadeOut()
-            $('#container').show()
+            $(".display-chart").fadeOut(function(){
+                $('#container').show()
             indiaData()
+            })
+            
         }
         if ($(this).attr('id') == 'category-item-india') {
-            $('#container').slideUp()
-            $("#gcontainer2").fadeOut()
-            $("#gcontainer").fadeIn()
+            //$('#container').slideUp()
+            $(".display-chart").fadeOut(function(){
+                $("#gcontainer").fadeIn()
+            })
+            
 
         }
         if ($(this).attr('id') == 'category-item-delta') {
-            $('#container').slideUp()
-            $("#gcontainer").fadeOut()
-            $("#gcontainer2").fadeIn()
+            //$('#container').slideUp()
+            $(".display-chart").fadeOut(function(){
+                $("#gcontainer2").fadeIn()
+            })
+            
+
+        }
+        if ($(this).attr('id') == 'category-item-flat') {
+            //$('#container').slideUp()
+            $(".display-chart").fadeOut(function(){
+                $("#gcontainer3").fadeIn()
+            })
+            
 
         }
 
